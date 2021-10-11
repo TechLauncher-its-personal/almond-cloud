@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@500&display=swap');
 #almond-index-carousel .item {
     height: 720px;
     top: 0;
@@ -775,10 +776,20 @@
 }
 
 h2#almond-subtitle {
-    margin-bottom: 0.5em !important;
-    font-size: 30px;
+    font-family:'Manrope',sans-serif;
+    color: #16396B;
+    line-height: 90px;
+    font-weight: 60px; 
+    font-size: 54px   
 }
 
+h1#almond-title{
+    font-family:'Manrope',sans-serif;
+    color: #16396B;
+    line-height: 90px;
+    font-weight: 60px;
+    font-size: 54px
+}
 #almond-logo {
     display: block;
     width: 100px;
@@ -804,7 +815,7 @@ h2#almond-subtitle {
 }
 
 .call-to-action {
-    font-size: 24px;
+    font-size: 15px;
 }
 
 #try-almond-now-row+.row {

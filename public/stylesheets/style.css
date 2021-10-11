@@ -1,12 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@500&display=swap');
 html,
 body {
-    margin: 0;
-    font-size: 16px;
-    ;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+/* Button */
+
+.btn-primary{
+    background-color:#35B1E6;
+    border-color:#35B1E6;
+    border-width: 2px;
+}
+.btn-primary:focus,.btn-primary.focus{
+    color:#ffffff;
+    background-color:#0284d0;
+    border-color:#0284d0;
+}
+button#Sign-up {
+    background-color: #828282;
+}
+
+.btn-primary:hover{
+    color:#ffffff;
+    background-color:#0284d0;
+    border-color:#35B1E6;
+}
+.btn-primary:active:hover, .btn-primary.active:hover, .open>.dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open>.dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open>.dropdown-toggle.btn-primary.focus {
+    color: #ffffff;
+    background-color: #0284d0;
+    border-color: #35B1E6;
 }
 
 .force-inline {
     display: inline;
+}
+.btn{
+    display:inline-block;
+}
+.btn-block{
+    width:100%;
+    border-radius:5px;
 }
 
 @media screen and (min-width: 490px) and (max-width: 992px) {
@@ -20,12 +54,12 @@ body {
 
 @media screen and (min-width: 993px) {
     #page-body {
-        margin-top: 65px;
+        margin-top: 95px;
     }
 }
 
 .head-home {
-    margin-top: 45px !important;
+    margin-top: 0 !important;
 }
 
 #page-body.container,
@@ -56,6 +90,27 @@ body {
 #page-title {
     text-align: center;
     margin-bottom: 1em;
+}
+
+.split#page-title {
+    margin-bottom: 0!important;
+}
+
+#page-title h4 {
+    color: #35B1E6;
+    font-family: 'Manrope',sans-serif;
+    font-size: 20px;
+}
+
+#page-title h5 {
+    color: #35B1E6;
+    font-family: 'Manrope',sans-serif;
+    font-size: 24px;
+}
+
+#page-subtitle {
+    font-size: 14px;
+    color: royalblue;
 }
 
 .msg-container {
@@ -116,9 +171,10 @@ body {
 }
 
 .logo_top {
-    width: 55px;
+    width: 125px;
     float: left;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 #stanford-logo {
@@ -175,6 +231,11 @@ body {
 
 .control-label {
     font-size: 1.2em;
+    text-align: right;
+}
+
+.control-label a {
+    color: grey;
 }
 
 .dont {
@@ -187,21 +248,105 @@ body {
     margin: unset;
 }
 
+
+/*showcase*/
+
+.divider p{
+    font-family: 'Manrope', sans-serif;
+    color: #828282;
+    margin-bottom: 0.5em !important;
+    font-size: 16px;
+}
+
+/* Navbar */
+.navbar.top{
+    background: transparent;
+}
 #navbar-login-button {
     margin-right: 30px;
+    background-color: #069ddd;
+    border-radius:1.25rem!important;
+    color:#fff;
+}
+
+#navbar-login-button:hover, #navbar-login-button:focus {
+    margin-right: 30px;
+    background-color: #024968;
+    color:#fff;
+    border-bottom:0;
 }
 
 .navbar-header {
     height: 65px;
+    padding-left: 200px;
 }
 
 .navbar-nav {
     font-size: 18px;
     font-weight: 700;
-    padding-top: 10px;
+    padding-top: 25px;
     padding-bottom: 0;
+    padding-right: 200px;
 }
 
+.navbar-inverse .navbar-brand{
+    color:#828282;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+    /*color: #ffffff;
+      border-bottom:#fff 2px solid;*/
+    color:#000;
+    background-color: transparent;
+    border-bottom:#000 2px solid;
+}
+.navbar-inverse .navbar-text{
+    color:#828282
+}
+.navbar-inverse .navbar-nav>li>a{
+    /*color:#8282828*/
+    color:#000;
+    margin-right: 15px;
+}
+.navbar-inverse ,.navbar-inverse .navbar-nav>li>a:focus{
+    color:#828282;
+    background:transparent;
+}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.active>a:focus{
+    color:#828282;
+    background-color:transparent
+}
+.navbar-inverse .navbar-nav>.disabled>a,.navbar-inverse .navbar-nav>.disabled>a:hover,.navbar-inverse .navbar-nav>.disabled>a:focus{
+    color:#444444;
+    background-color:transparent
+}
+.navbar-inverse .navbar-toggle{
+    border-color:transparent
+}
+.navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus{
+    background-color:transparent
+}
+.navbar-inverse .navbar-toggle .icon-bar{
+    background-color:#ffffff
+}
+.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form{
+    border-color:transparent;
+    padding-bottom: 25px;
+}
+.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a:focus{
+    background-color:transparent;
+    color:#828282
+}
+.navbar-inverse{
+    /*background-color:#35B1E6;*/
+    background-color: #e8ecfc;
+    border-color:transparent;
+    opacity: 0.8;
+}
+navbar-inverse .navbar-nav>li>a:hover,.navbar-inverse .navbar-nav>li>a:focus{
+    color:#828282;
+    background-color:transparent;
+}
 .navbar-brand {
     margin-left: 0.6em;
     margin-top: 10px;
@@ -231,7 +376,7 @@ body {
         font-size: 1.1em;
     }
     #input {
-        width: 86% !important;
+        width: 80% !important;
     }
 }
 
@@ -356,7 +501,7 @@ pre code {
 .panel-footer {
     min-height: 3em;
     padding: 2px 5px !important;
-    background-color: #b1040e;
+    background-color: #35B1E6;
     border-bottom-left-radius: 19px;
     border-bottom-right-radius: 19px;
 }
@@ -389,12 +534,13 @@ pre code {
     margin-top: 3.2em;
 }
 
+/* foooter */
 footer.page-footer {
     padding-top: 1.5em;
-    background-color: #8c1515;
+    background-color:#35B1E6;
     color: white;
     text-align: right;
-    min-height: 100px;
+    min-height: 20px;
 }
 
 footer.page-footer a:link,
@@ -424,11 +570,26 @@ footer.page-footer a:hover {
     text-align: center;
     padding-top: 2em;
     padding-bottom: 2em;
+    height: 110vh;   
 }
 
 #section-commandpedia {
     min-height: 53vh;
     font-size: 1.3em;
+}
+
+#section-other-pages {
+    background-color: #e8ecfc;
+    opacity: 0.8;
+}
+
+#try-almond-now-row {
+    margin-top: 3em;
+}
+
+#assistant-title {
+    font-family: 'Manrope',sans-serif;
+    color: royalblue;
 }
 
 #inside-almond {
@@ -452,8 +613,8 @@ footer.page-footer a:hover {
     scroll-snap-align: start;
 }
 
-.home-page#section-heading {
-    min-height: 937px;
+.me#almond-index-container {
+    padding-top: 0;
 }
 
 #almond-index-container {
@@ -461,12 +622,12 @@ footer.page-footer a:hover {
 }
 
 #almond-index-container #chat {
-    background-color: #ece5ddb3;
+    background-color: powderblue;
     margin: 1px 0em;
     overflow-y: scroll;
     height: -webkit-fill-available;
     padding: 20px 35px;
-    height: 730px !important;
+    height: 500px !important;
 }
 
 #almond-index-container .message.from-user {
@@ -504,10 +665,6 @@ footer.page-footer a:hover {
     }
 }
 
-#almond-index-container #try-almond-now,
-#almond-index-container .call-to-action {
-    margin: 125px 0px;
-}
 
 #almond-index-container #input-form {
     overflow: auto;
@@ -565,19 +722,6 @@ footer.page-footer a:hover {
     color: #fff;
 }
 
-#section-heading h1 {
-    color: #8c1515;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    font-size: 96px;
-    text-shadow: 1px 1px 0px black;
-}
-
-#section-heading h2 {
-    font-size: 42px;
-    margin-bottom: 1em;
-}
-
 #section-heading h4 {
     font-weight: 600;
 }
@@ -587,7 +731,8 @@ footer.page-footer a:hover {
 }
 
 .sections> :nth-child(even) {
-    background-color: #f3f4f2;
+    /*background-color: #f3f4f2;*/
+    background-color: #e8ecfc;
 }
 
 @media screen and (max-width: 768px) {
@@ -599,6 +744,15 @@ footer.page-footer a:hover {
 .sections>.divider {
     padding-top: 2em;
     padding-bottom: 4em;
+}
+
+#section-top {
+    padding-top: 0;
+}
+
+.divider h2 {
+    text-align: center;
+    font-size: 48px;
 }
 
 .divider h3 {
@@ -673,6 +827,11 @@ img.device-icon-tiny {
     box-sizing: content-box;
     padding-right: 1em;
 }
+
+.about-us-page#section-head {
+    padding-top: 2em;
+}
+
 
 .aside {
     font-size: 0.8em;
@@ -830,4 +989,133 @@ input[type="checkbox"] {
 .consent-form {
   max-height:300px;
   overflow: auto;
+}
+
+/* Login page CSS 
+*/
+.login_container {
+    margin-top: 50px;
+    border-radius:1.25rem!important;
+    background-color: white;
+}
+
+.container-fluid#login-page {
+    background-color: #e8ecfc;
+    height: 90vh;
+}
+
+.container-fluid#chatbox-section {
+/*     margin-top: 10px; */
+    margin-left: 30px;
+	padding: 2em;
+    border-radius:1.25rem;
+    background-color: #e0edfd;
+}
+
+#login-page-input {
+    padding-top: 3em;
+    padding-left: 5em;
+    padding-right: 3em;
+}
+
+.login_header {
+    margin-top: 4em;
+}
+
+.login_header h1 {
+    font-family: 'Manrope',sans-serif;
+    color: #069ddd;
+}
+
+#login-page-login {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#login-page-login a{
+    padding-top: 1em;
+    color: #069ddd;
+    text-align: right;
+    font-size: 20px;
+}
+
+#login-page-signup {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#login-page-signup a{
+    padding-top: 1em;
+    color: black;
+    text-align: right;
+    font-size: 20px;
+}
+
+#login-button {
+    width: 100%;
+    text-align: center;
+}
+
+#login-image {
+    width: 100%;
+    height: 65vh;
+    border-top-right-radius:1.25rem!important;
+    border-bottom-right-radius:1.25rem!important;
+}
+
+/* Register page CSS 
+*/
+.container-fluid#register-page {
+    background-color: #e8ecfc;
+    padding-bottom: 4em;
+}
+
+#register-page-input {
+    padding: 5em;
+}
+
+.register_header {
+    margin-top: 4em;
+    text-align: center;
+}
+
+.register_header h1 {
+    font-family: 'Manrope',sans-serif;
+    color: #069ddd;
+}
+
+#register-page-login {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#register-page-login a{
+    padding-top: 1em;
+    color: black;
+    text-align: right;
+    font-size: 20px;
+}
+
+#register-page-signup {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#register-page-signup a{
+    padding-top: 1em;
+    color: #069ddd;
+    text-align: right;
+    font-size: 20px;
+}
+
+#register-button {
+    width: 100%;
+    text-align: center;
+}
+
+/* About Us Page
+*/
+#about-us-title h2 {
+    font-family: 'Manrope',sans-serif;
+    color: #069ddd;
 }
