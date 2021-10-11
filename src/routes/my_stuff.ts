@@ -60,7 +60,7 @@ async function getInfo(req : express.Request) {
 
 router.get('/', (req, res, next) => {
     getInfo(req).then(([isRunning, appinfo, devinfo]) => {
-        res.render('my_stuff', { page_title: req._("My Genie"),
+        res.render('my_stuff', { page_title: req._("My Assistant | ISS Personal Assistant"),
                                  messages: req.flash('app-message'),
                                  csrfToken: req.csrfToken(),
                                  isRunning: isRunning,
@@ -74,7 +74,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', iv.validatePOST({ command: 'string' }), iv.validateGET({ flags: '?object' }), (req, res, next) => {
     getInfo(req).then(([isRunning, appinfo, devinfo]) => {
-        res.render('my_stuff', { page_title: req._("My Genie"),
+        res.render('my_stuff', { page_title: req._("My Assistant | ISS Personal Assistant"),
             messages: req.flash('app-message'),
             csrfToken: req.csrfToken(),
             isRunning: isRunning,
@@ -102,14 +102,14 @@ router.post('/apps/delete', iv.validatePOST({ id: 'string' }), (req, res, next) 
 
 router.get('/conversation', (req, res, next) => {
     res.render('my_conversation', {
-        page_title: req._("My Genie"),
+        page_title: req._("My Assistant | ISS Personal Assistant"),
         flags: req.query.flags || {}
     });
 });
 
 router.post('/conversation', iv.validatePOST({ command: 'string' }), iv.validateGET({ flags: '?object' }), (req, res) => {
     res.render('my_conversation', {
-        page_title: req._("My Genie"),
+        page_title: req._("My Assistant | ISS Personal Assistant"),
         command: req.body.command,
         flags: req.query.flags || {}
     });
