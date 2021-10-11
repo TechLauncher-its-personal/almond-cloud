@@ -9,16 +9,17 @@ block styles
   link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/conversation.css')
 
 block scripts
-  script(src=Config.ASSET_CDN + '/javascripts/commandpedia-bundle.js')
+  if WITH_THINGPEDIA === 'embedded'
+    script(src=Config.ASSET_CDN + '/javascripts/commandpedia-bundle.js')
   script(src=Config.ASSET_CDN + '/javascripts/index.js')
-  if ENABLE_ANONYMOUS_USER && !authenticated
+  if authenticated || ENABLE_ANONYMOUS_USER
     script(src=Config.ASSET_CDN + '/javascripts/conversation-bundle.js')
-
-block playout
-  - stdlayout = false;
+  if !authenticated && ENABLE_ANONYMOUS_USER
+    script(src=Config.ASSET_CDN + '/javascripts/register.js')
 
 block page_name
-  = _("ISS Genie")
+  - stdlayout = false;
+  = _("Genie")
 
 block content
   if authenticated
@@ -33,61 +34,41 @@ block content
             h4.modal-title= _("Register for Genie")
           div.modal-body
             +registration_form(true)
-  div#page-body.head-home
-    section.divider.home-page#section-heading
-      div.container-fluid#almond-index-container
-        div.row
-          div.col-lg-12
-            h1#almond-title= _("Search for customized news with")
-            h2#almond-subtitle= _("The Open Virtual Assistant")
-            p Find news that you are interested in based on a specific topic by
-            p communicating with our new virtual assistant!
-      
-            if authenticated
-              div.row#try-almond-now-row
-                div.col-sm-4.col-sm-offset-4
-                  a(href='/me').btn.btn-primary.custom-btn.btn-block.call-to-action= _("Go To My Assistant")
-            else if !ENABLE_ANONYMOUS_USER
-              div.row#try-almond-now-row
-                div.col-sm-2.col-sm-offset-4
-                  a(href='/user/register').btn.btn-primary.btn-block.call-to-action= _("Try Now")
-                divcol-sm-2
-                  a(href='/user/register').btn.btn-primary.btn-block.call-to-action= _("Sign Up")
-            else
-              div.row#try-almond-now-row
-                //-
-                  div.col-lg-2.col-lg-offset-4
-                    button#try-almond-now.btn.btn-primary.custom-btn.btn-block.call-to-action= _("Try Now")
-                div.col-sm-2.col-sm-offset-4
-                  a(href='#try-almond-now-conversation')#try-almond-now.btn.btn-primary.btn-block.call-to-action= _("Try Now")
-                div.col-sm-2
-                  a(href='/user/register').btn.btn-primary.btn-block.call-to-action= _("Sign Up")
-              
-              
 
-    div.sections#home-page-sections
-      section.divider#section-assistant-chatbox
-        div.container-fluid#almond-index-container
-          div.row
-            div.col-lg-12
-              div.row#try-almond-now-conversation
-                h3#assistant-title= _("My Assistant")
-                div.col-lg-12
-                  +conversation_mixin('/me/ws/anonymous')(class='home',aria-expanded='false')
+  div#page-body
+    section.divider#section-heading
+      h1#almond-title= _("Genie")
+      h2#almond-subtitle= _("The Open Virtual Assistant")
 
-      section.divider#section-other-pages
-        div.container
+      div.container
+        if authenticated
           div.row
-            a(href='/about/us')
-              div.col-sm-5#page-title
-                h5 About the Project
-                p 
-                  | This project was done by a team of 6 students from the ANU TechLauncher Program. 
-                  strong Read More >
-            div.col-sm-2
-            a(href='https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering')
-              div.col-sm-5#page-title
-                h5 Read the Project Documentation 
-                p 
-                  | This project is based on an open source virtual assistant called Almond by Stanford University. 
-                  strong Read More >  
+            div.col-lg-6.col-lg-offset-3
+              +conversation_mixin('/me/ws/conversation')(class='')
+        else if ENABLE_ANONYMOUS_USER
+          div.row#try-almond-now-row
+            div.col-lg-4.col-lg-offset-4
+              button.btn.btn-primary.btn-block.call-to-action#try-almond-now= _("Try Genie Now")
+
+          div.row.hidden#try-almond-now-conversation
+            div.col-lg-6.col-lg-offset-3
+              +conversation_mixin('/me/ws/anonymous?locale=' + locale)(class='')
+
+        else
+          div.row
+            div.col-lg-4.col-lg-offset-4
+              a(href='/user/register').btn.btn-primary.btn-block.call-to-action= _("Try Genie Now")
+
+    div.sections
+      if WITH_THINGPEDIA === 'embedded'
+        section.divider#section-commandpedia
+          h3= _("Popular Commands")
+          div.container
+            include ./commandpedia.pug
+
+        section.divider
+          h3= _("Still Not Seeing What You Want?")
+          div.container
+            div.row
+              div.col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
+                a(href='/thingpedia').btn.btn-primary.btn-block= _("Explore Thingpedia")

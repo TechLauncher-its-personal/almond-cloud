@@ -20,7 +20,7 @@
     overflow-y: scroll;
     height: -webkit-fill-available;
     padding: 20px 35px;
-    min-height: 480px;
+    min-height: 566px;
     height: calc(100vh - 385px);
     overflow-anchor: none;
 }
@@ -92,25 +92,17 @@
     max-height: 500px;
     margin: auto;
     max-width: 800px;
-    background-color: powderblue;
+    background-color: #ece5dd6b;
     font-weight: 400;
     font-size: 1.2em;
 }
 
 #conversation.single {
     max-height: 100%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border: 1px solid #585858;
-    margin-top: 15px;
-    /*
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border: 1px solid #585858;
     border-top: 0;
-    */
 }
 
 #conversation .glyphicon {
@@ -221,14 +213,14 @@
 }
 
 #conversation #input {
-    width: 85%;
+    width: 90%;
     margin: 0.6em;
     float: left;
     border-radius: 8px;
 }
 
 #conversation .input-alert {
-    color: #36b1e6;
+    color: #8c1515;
     opacity: 1;
     /* Firefox */
     text-align: right;
@@ -236,7 +228,7 @@
 }
 
 #conversation #input-block {
-    background-color: #36b1e6;
+    background-color: #8c1515;
     min-height: 70px;
     padding: 0.6em;
 }
@@ -286,7 +278,7 @@
 
 #conversation .help-block {
     display: block;
-    color: #36b1e6;
+    color: #b1040e;
     font-weight: bold;
     width: 50%;
     text-align: center;
@@ -323,23 +315,23 @@
     width: .6em;
     height: .6em;
     margin: .19em;
-    background: #36b1e6;
+    background: #8c1515;
     border-radius: .6em;
     animation: loading 1s infinite alternate;
 }
 
 #conversation .almond-thinking span:nth-of-type(2) {
-    background: #36b1e6;
+    background: #8d2727;
     animation-delay: 0.2s;
 }
 
 #conversation .almond-thinking span:nth-of-type(3) {
-    background: #36b1e6;
+    background: #a73c3c;
     animation-delay: 0.4s;
 }
 
 #conversation .almond-thinking span:nth-of-type(4) {
-    background: #36b1e6;
+    background: #c05959;
     animation-delay: 0.6s;
 }
 
@@ -365,33 +357,4 @@
     100% {
         opacity: 1;
     }
-}
-
-.assistant-body {
-    margin-top: 0!important;
-}
-
-#topics-section {
-    padding: 2em;
-    border-radius:1.25rem;
-    border: 1px solid #585858;
-    background-color: white;
-    margin-top: 15px;
-}
-
-#topics-title h1{
-    margin: 0;
-    font-family: 'Manrope',sans-serif;
-    color: #069ddd;
-    text-align: center;
-}
-
-#topics-entry h4{
-    margin-top: 10px;
-    border-radius: 1.25rem;
-    border: 3px solid #069ddd;
-    background-color: powderblue;
-    font-family: 'Manrope',sans-serif!important;
-    color: white;
-    padding: 5px;
 }

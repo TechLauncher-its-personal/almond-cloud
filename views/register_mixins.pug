@@ -3,73 +3,57 @@ mixin registration_form(include_consent_form)
     div.alert.alert-warning.alert-reg(role='alert',style='color:black')
       p!= Config.REGISTRATION_WARNING
 
-  div.row
-    div.col-sm-2
-      img.logo_top(src=Config.ASSET_CDN + '/images/iss-logo.png')
-    div.col-sm-2.col-sm-offset-6#register-page-login
-      a(href='/user/login')
-        P Sign In
-    div.col-sm-2#register-page-signup
-      a(href='/user/register')
-        P Sign Up
-  div.row 
-    div.register_header 
-      div.register_header-logo 
-        h1 Sign Up
-      div.register_header-text
-        p Sign up to create a new account
-    div.login_form-container
-      form(action='/user/register', method='post', data-toggle='validator')#registration-form
-        input(type='hidden',name='_csrf',value=csrfToken)
-        input(type='hidden',name='timezone')#timezone
-        input(type='hidden',name='conversation_state',value='')
-        div.form-group
-          //- label(for='username').control-label= _("Username")
-          input(type='text',name='username',value='',required=true,maxlength=60,autocorrect='off',autocapitalize='none',placeholder='Username').form-control#username
-        div.form-group
-          //- label(for='email').control-label= _("E-Mail")
-          input(type='email',name='email',value='',required=true,maxlength=255,placeholder='Email').form-control#email
-        div.form-group
-          //- label(for='phone').control-label= _("Phone Number")
-          span.help-block=_("(Optional) Enter your a mobile phone number if you would like to receive notifications over SMS:")
-          input(type='tel',name='phone',value='',required=false,maxlength=255,placeholder='Phone number').form-control#phone
-        div.form-group
-          //- label(for='password').control-label= _("Password")
-          input(type='password',name='password',value='',required=true,maxlength=255,minlength=8,data-minlength=8,placeholder='Password').form-control#password
-          span.help-block= _("Minimum of 8 characters")
-        div.form-group#confirm-password-group
-          //- label(for='confirm-password').control-label= _("Confirm password")
-          input(type='password',name='confirm-password',value='',required=true,data-match='#password',data-match-error=_("The password and the confirmation must match"),placeholder='Confirm Password').form-control#confirm-password
-          span.help-block.with-errors
+  form(action='/user/register', method='post', data-toggle='validator')#registration-form
+    input(type='hidden',name='_csrf',value=csrfToken)
+    input(type='hidden',name='timezone')#timezone
+    input(type='hidden',name='conversation_state',value='')
+    div.form-group
+      label(for='username').control-label= _("Username")
+      input(type='text',name='username',value='',required=true,maxlength=60,autocorrect='off',autocapitalize='none').form-control#username
+    div.form-group
+      label(for='email').control-label= _("E-Mail")
+      input(type='email',name='email',value='',required=true,maxlength=255).form-control#email
+    div.form-group
+      label(for='phone').control-label= _("Phone Number")
+      input(type='tel',name='phone',value='',required=false,maxlength=255).form-control#phone
+      span.help-block=_("Enter your a mobile phone number if you would like to receive notifications over SMS.")
+    div.form-group
+      label(for='password').control-label= _("Password")
+      input(type='password',name='password',value='',required=true,maxlength=255,minlength=8,data-minlength=8).form-control#password
+      span.help-block= _("Minimum of 8 characters")
+    div.form-group#confirm-password-group
+      label(for='confirm-password').control-label= _("Confirm password")
+      input(type='password',name='confirm-password',value='',required=true,data-match='#password',data-match-error=_("The password and the confirmation must match")).form-control#confirm-password
+      span.help-block.with-errors
 
-        if Config.SUPPORTED_LANGUAGES.length > 1
-          div.form-group
-            label(for='locale').control-label= _("Language")
-            select(name='locale').form-control#locale
-              for lang, i in Config.SUPPORTED_LANGUAGES
-                option(value=lang,selected=(i===0))= I18n.getLangName(_, lang)
-        else
-          input(type='hidden',name='locale',value=Config.SUPPORTED_LANGUAGES[0])
+    if Config.SUPPORTED_LANGUAGES.length > 1
+      div.form-group
+        label(for='locale').control-label= _("Language")
+        select(name='locale').form-control#locale
+          for lang, i in Config.SUPPORTED_LANGUAGES
+            option(value=lang,selected=(i===0))= I18n.getLangName(_, lang)
+    else
+      input(type='hidden',name='locale',value=Config.SUPPORTED_LANGUAGES[0])
 
-        if include_consent_form
-          +consent_form
+    if include_consent_form
+      +consent_form
 
-          div.form-group
-            div.checkbox
-              label.control-label
-                input(type='checkbox',name='agree_consent',id='register-agree-consent',value='1')
-                =_("I agree to grant consent to this research.")
-        else
-          input(type='hidden',name='agree_consent',id='register-agree-consent',value='1')
+      div.form-group
+        div.checkbox
+          label.control-label
+            input(type='checkbox',name='agree_consent',id='register-agree-consent',value='1')
+            =_("I agree to grant consent to this research.")
+    else
+      input(type='hidden',name='agree_consent',id='register-agree-consent',value='1')
 
-        div.form-group
-          div.checkbox
-            label.control-label
-              input(type='checkbox',name='agree_terms',id='register-agree-terms',value='1',required=true)
-              != _("I agree to the <a href='/about/tos'>terms of service</a> of the Genie service.")
+    div.form-group
+      div.checkbox
+        label.control-label
+          input(type='checkbox',name='agree_terms',id='register-agree-terms',value='1',required=true)
+          != _("I agree to the <a href='/about/tos'>terms of service</a> of the Genie service.")
 
-        div.form-group
-          button(type='submit').btn.btn-primary.custom-btn#register-button= _("Register")
+    div.form-group
+      button(type='submit').btn.btn-primary= _("Register")
 
 mixin consent_form
   h2=_("Consent Form")
