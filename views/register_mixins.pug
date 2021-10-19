@@ -68,7 +68,7 @@ mixin registration_form(include_consent_form)
           div.checkbox
             label.control-label
               input(type='checkbox',name='agree_terms',id='register-agree-terms',value='1',required=true)
-              != _("I agree to the <a href='/about/tos'>terms of service</a> of the Genie service.")
+              != _("I agree to the <a href='/about/tos'>terms of service</a> of the ISS personal assistant service.")
 
         div.form-group
           button(type='submit').btn.btn-primary.custom-btn#register-button= _("Register")
